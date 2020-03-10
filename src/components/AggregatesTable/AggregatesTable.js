@@ -51,8 +51,17 @@ function AggregatesTable(props) {
 	)
 }
 
-function sortTradesBySymbol(trades) {
-	
+export function sortTradesBySymbol(trades) {
+	const tradesBySymbol = []
+	const Symbols = []
+
+	trades.forEach(trade => {
+		if (!Symbols.includes(trade.symbol)) {
+			Symbols.push(trade.symbol)
+		}
+	});
+
+	return Symbols
 }
 
 export default AggregatesTable
