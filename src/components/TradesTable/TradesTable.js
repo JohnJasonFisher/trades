@@ -1,15 +1,13 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 function TradesTable() {
 
-	let rowNum = 0
-
-	const fields = ["symbol",
+	const [fields] = useState(["symbol",
 	"price",
 	"shares",
-	"action"]
+	"action"])
 
-	const fakeData = [
+	const [fakeData] = useState([
 		{
 			"symbol": "SPX",
 			"price": 2780,
@@ -22,7 +20,11 @@ function TradesTable() {
 			"shares": 2,
 			"action": "SELL"
 		}
-	]
+	])
+
+	let headerKey = 0
+
+	let rowKey = 0
 
 	let tableDetails = data => {
 		const rows = []
@@ -32,12 +34,12 @@ function TradesTable() {
 		return rows
 	}
 
-	let tableRows = fakeData.map(data => {
-		return <tr key={rowNum++}>{tableDetails(data)}</tr>
+	const tableRows = fakeData.map(data => {
+		return <tr key={rowKey++}>{tableDetails(data)}</tr>
 	})
 
 	const tableHeaders = fields.map(fields => {
-		return <th key={rowNum++}>{fields}</th>
+		return <th key={headerKey++}>{fields}</th>
 	})
 
 	return (
