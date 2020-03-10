@@ -15,8 +15,6 @@ function AggregatesTable(props) {
 		]
 	)
 
-	let aggData = props.trades
-
 	let tableDetails = trade => {
 		const rows = []
 		for (let tradeDetail in trade) {
@@ -52,16 +50,21 @@ function AggregatesTable(props) {
 }
 
 export function sortTradesBySymbol(trades) {
-	const tradesBySymbol = []
+	const tradesBySymbol = {}
 	const Symbols = []
 
 	trades.forEach(trade => {
 		if (!Symbols.includes(trade.symbol)) {
 			Symbols.push(trade.symbol)
+			tradesBySymbol[trade.symbol] = {
+				symbol: trade.symbol,
+				pnl: trade.price,
+				total_trades: 1
+			}
 		}
 	});
 
-	return Symbols
+	return tradesBySymbol
 }
 
 export default AggregatesTable

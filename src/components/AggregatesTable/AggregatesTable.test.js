@@ -18,8 +18,9 @@ describe('sortTradesBySymbol', () => {
 	]
 
 	test('sortTradesBySymbol returns 1 unique symbol', () => {
-		
-		expect(sortTradesBySymbol(testTrades)).toEqual(['SPX'])
+		const list_with_one_trade = [testTrades[0]]
+		const expected_aggregate = {SPX: {symbol: 'SPX', pnl: 2780, total_trades: 1}}
+		expect(sortTradesBySymbol(list_with_one_trade)).toEqual(expected_aggregate)
 	})
 
 })
