@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import 'bootstrap/dist/css/bootstrap.css'
 
 function TradesTable() {
 
@@ -46,7 +47,7 @@ function TradesTable() {
 		<div className="TradesTable">
 
 			<table className="table table-striped">
-				<caption>Student Data</caption>
+				<caption style={{'caption-side': 'top', 'text-align': 'center'}}>Student Data</caption>
 				<thead>
 					<tr>
 						{tableHeaders}
