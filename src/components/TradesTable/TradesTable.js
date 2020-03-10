@@ -1,45 +1,25 @@
-import React, {useState} from 'react'
+import React from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
 
-function TradesTable() {
-
-	const [fields] = useState(["symbol",
-	"price",
-	"shares",
-	"action"])
-
-	const [fakeData] = useState([
-		{
-			"symbol": "SPX",
-			"price": 2780,
-			"shares": 2,
-			"action": "BUY"
-		},
-		{
-			"symbol": "SPX",
-			"price": 2770,
-			"shares": 2,
-			"action": "SELL"
-		}
-	])
+function TradesTable(props) {
 
 	let headerKey = 0
 
 	let rowKey = 0
 
-	let tableDetails = data => {
+	let tableDetails = trade => {
 		const rows = []
-		for (let field in data) {
-			rows.push(<td key={data[field]}>{data[field]}</td>)
+		for (let tradeDetail in trade) {
+			rows.push(<td key={trade[tradeDetail]}>{trade[tradeDetail]}</td>)
 		}
 		return rows
 	}
 
-	const tableRows = fakeData.map(data => {
-		return <tr key={rowKey++}>{tableDetails(data)}</tr>
+	const tableRows = props.trades.map(trade => {
+		return <tr key={rowKey++}>{tableDetails(trade)}</tr>
 	})
 
-	const tableHeaders = fields.map(fields => {
+	const tableHeaders = props.fields.map(fields => {
 		return <th key={headerKey++}>{fields}</th>
 	})
 
