@@ -61,6 +61,12 @@ export function sortTradesBySymbol(trades) {
 				pnl: trade.price,
 				total_trades: 1
 			}
+		} else {
+			tradesBySymbol[trade.symbol] = {
+				symbol: trade.symbol,
+				pnl: tradesBySymbol[trade.symbol].pnl + trade.price,
+				total_trades: tradesBySymbol[trade.symbol].total_trades + 1
+			}
 		}
 	});
 
