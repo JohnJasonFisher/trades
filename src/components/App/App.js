@@ -20,11 +20,11 @@ function App() {
 
 	return (
 	<div className="App">
-		<header className="App-header" style={{'text-align': 'center'}}>
+		<header className="App-header" style={{'textAlign': 'center'}}>
 			<h1>Trades Project</h1>
 		</header>
 		<TradesTable trades={fakeData}/>
-		<AggregateTable fields={fields} trades={fakeData}/>
+		{/* <AggregateTable fields={fields} trades={fakeData}/> */}
 	</div>
 	)
 }

@@ -36,7 +36,7 @@ function TradesTable(props) {
 		<div className="TradesTable">
 
 			<table className="table table-striped">
-				<caption style={{'caption-side': 'top', 'text-align': 'center'}}>Trades Data</caption>
+				<caption style={{'captionSide': 'top', 'textAlign': 'center'}}>Trades Data</caption>
 				<thead>
 					<tr>
 						{tableHeaders}
