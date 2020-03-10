@@ -3,11 +3,6 @@ import TradesTable from '../TradesTable/TradesTable'
 
 function App() {
 
-	const [fields] = useState(["symbol",
-	"price",
-	"shares",
-	"action"])
-
 	const [fakeData] = useState([
 		{
 			"symbol": "SPX",
@@ -28,7 +23,8 @@ function App() {
 		<header className="App-header" style={{'text-align': 'center'}}>
 			<h1>Trades Project</h1>
 		</header>
-		<TradesTable fields={fields} trades={fakeData}/>
+		<TradesTable trades={fakeData}/>
+		<AggregateTable fields={fields} trades={fakeData}/>
 	</div>
 	)
 }

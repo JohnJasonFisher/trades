@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
 
-function TradesTable(props) {
+function AggregatesTable(props) {
 
 	let headerKey = 0
 
@@ -10,11 +10,12 @@ function TradesTable(props) {
 	const [fields] = useState(
 		[
 			"symbol",
-			"price",
-			"shares",
-			"action"
+			"pnl",
+			"total_trades"
 		]
 	)
+
+	let aggData = props.trades
 
 	let tableDetails = trade => {
 		const rows = []
@@ -33,10 +34,10 @@ function TradesTable(props) {
 	})
 
 	return (
-		<div className="TradesTable">
+		<div className="AggregatesTable">
 
 			<table className="table table-striped">
-				<caption style={{'caption-side': 'top', 'text-align': 'center'}}>Trades Data</caption>
+				<caption style={{'caption-side': 'top', 'text-align': 'center'}}>Aggregate Trades Data</caption>
 				<thead>
 					<tr>
 						{tableHeaders}
@@ -50,4 +51,8 @@ function TradesTable(props) {
 	)
 }
 
-export default TradesTable
+function sortTradesBySymbol(trades) {
+	
+}
+
+export default AggregatesTable
