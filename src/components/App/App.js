@@ -1,23 +1,11 @@
 import React, {useState} from 'react'
 import TradesTable from '../TradesTable/TradesTable'
 import AggregatesTable from '../AggregatesTable/AggregatesTable'
+import tradeJson from '../../trades.json'
 
 function App() {
 
-	const [fakeData] = useState([
-		{
-			"symbol": "SPX",
-			"price": 2780,
-			"shares": 2,
-			"action": "BUY"
-		},
-		{
-			"symbol": "SPX",
-			"price": 2770,
-			"shares": 2,
-			"action": "SELL"
-		}
-	])
+	const [fakeData] = useState(tradeJson.trades)
 
 	return (
 	<div className="App">
