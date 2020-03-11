@@ -1,51 +1,12 @@
-import React, {useState} from 'react'
+import React from 'react'
+import TableComp from '../TableComp/TableComp'
 import 'bootstrap/dist/css/bootstrap.css'
 
 function TradesTable(props) {
 
-	let headerKey = 0
-
-	let rowKey = 0
-
-	const [fields] = useState(
-		[
-			"symbol",
-			"price",
-			"shares",
-			"action"
-		]
-	)
-
-	let tableDetails = trade => {
-		const rows = []
-		for (let tradeDetail in trade) {
-			rows.push(<td key={trade[tradeDetail]}>{trade[tradeDetail]}</td>)
-		}
-		return rows
-	}
-
-	const tableRows = props.trades.map(trade => {
-		return <tr key={rowKey++}>{tableDetails(trade)}</tr>
-	})
-
-	const tableHeaders = fields.map(fields => {
-		return <th key={headerKey++}>{fields}</th>
-	})
-
 	return (
 		<div className="TradesTable">
-
-			<table className="table table-striped">
-	<caption style={{'captionSide': 'top', 'textAlign': 'center'}}>Trades Data (length: {props.trades.length})</caption>
-				<thead>
-					<tr>
-						{tableHeaders}
-					</tr>
-				</thead>
-				<tbody>
-					{tableRows}
-				</tbody>
-			</table>
+			<TableComp tableName='Trades Data' fields={["Symbol", "Price", "Shares", "Action"]} tableData={props.trades}/>
 		</div>
 	)
 }
