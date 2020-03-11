@@ -37,7 +37,7 @@ function AggregatesTable(props) {
 		<div className="AggregatesTable">
 
 			<table className="table table-striped">
-				<caption style={{'captionSide': 'top', 'textAlign': 'center'}}>Aggregate Trades Data</caption>
+				<caption style={{'captionSide': 'top', 'textAlign': 'center'}}>Aggregate Trades Data (length: {aggregateTrades.length})</caption>
 				<thead>
 					<tr>
 						{tableHeaders}
