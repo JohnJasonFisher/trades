@@ -15,6 +15,8 @@ function AggregatesTable(props) {
 		]
 	)
 
+	const [aggregateTrades] = useState(sortTradesBySymbol(props.trades))
+
 	let tableDetails = trade => {
 		const rows = []
 		for (let tradeDetail in trade) {
@@ -23,8 +25,8 @@ function AggregatesTable(props) {
 		return rows
 	}
 
-	const tableRows = props.trades.map(trade => {
-		return <tr key={rowKey++}>{tableDetails(trade)}</tr>
+	const tableRows = aggregateTrades.map(agTrade => {
+		return <tr key={rowKey++}>{tableDetails(agTrade)}</tr>
 	})
 
 	const tableHeaders = fields.map(fields => {
@@ -35,7 +37,7 @@ function AggregatesTable(props) {
 		<div className="AggregatesTable">
 
 			<table className="table table-striped">
-				<caption style={{'caption-side': 'top', 'text-align': 'center'}}>Aggregate Trades Data</caption>
+				<caption style={{'captionSide': 'top', 'textAlign': 'center'}}>Aggregate Trades Data</caption>
 				<thead>
 					<tr>
 						{tableHeaders}
@@ -70,7 +72,7 @@ export function sortTradesBySymbol(trades) {
 		}
 	});
 
-	return tradesBySymbol
+	return Object.values(tradesBySymbol)
 }
 
 export default AggregatesTable

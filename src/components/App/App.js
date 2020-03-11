@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import TradesTable from '../TradesTable/TradesTable'
+import AggregatesTable from '../AggregatesTable/AggregatesTable'
 
 function App() {
 
@@ -24,7 +25,7 @@ function App() {
 			<h1>Trades Project</h1>
 		</header>
 		<TradesTable trades={fakeData}/>
-		{/* <AggregateTable fields={fields} trades={fakeData}/> */}
+		<AggregatesTable trades={fakeData}/>
 	</div>
 	)
 }
