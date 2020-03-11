@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
 
 function TradesTable(props) {
@@ -6,6 +6,15 @@ function TradesTable(props) {
 	let headerKey = 0
 
 	let rowKey = 0
+
+	const [fields] = useState(
+		[
+			"symbol",
+			"price",
+			"shares",
+			"action"
+		]
+	)
 
 	let tableDetails = trade => {
 		const rows = []
@@ -19,7 +28,7 @@ function TradesTable(props) {
 		return <tr key={rowKey++}>{tableDetails(trade)}</tr>
 	})
 
-	const tableHeaders = props.fields.map(fields => {
+	const tableHeaders = fields.map(fields => {
 		return <th key={headerKey++}>{fields}</th>
 	})
 
@@ -27,7 +36,7 @@ function TradesTable(props) {
 		<div className="TradesTable">
 
 			<table className="table table-striped">
-				<caption style={{'caption-side': 'top', 'text-align': 'center'}}>Student Data</caption>
+				<caption style={{'captionSide': 'top', 'textAlign': 'center'}}>Trades Data</caption>
 				<thead>
 					<tr>
 						{tableHeaders}

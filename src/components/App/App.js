@@ -1,12 +1,8 @@
 import React, {useState} from 'react'
 import TradesTable from '../TradesTable/TradesTable'
+import AggregatesTable from '../AggregatesTable/AggregatesTable'
 
 function App() {
-
-	const [fields] = useState(["symbol",
-	"price",
-	"shares",
-	"action"])
 
 	const [fakeData] = useState([
 		{
@@ -25,10 +21,11 @@ function App() {
 
 	return (
 	<div className="App">
-		<header className="App-header" style={{'text-align': 'center'}}>
+		<header className="App-header" style={{'textAlign': 'center'}}>
 			<h1>Trades Project</h1>
 		</header>
-		<TradesTable fields={fields} trades={fakeData}/>
+		<TradesTable trades={fakeData}/>
+		<AggregatesTable trades={fakeData}/>
 	</div>
 	)
 }

@@ -26,3 +26,5 @@ The steps I took are listed in order from first to last in the done column and t
 ## General development stratagy
 
 The objective of this app is to fetch data from an api and turn that data into two tables. My initial deisgn was to fetch the trades data when the react app renders, and then I pass the fetched data down into two child components. The Trades table requires little manipulation of the fetched data. The Aggregate Table or the Aggregate Trades Table requires more manipulation of the fetched data but since it's sumations, I beleive that logic can be handled as part of the component without breaking out that logic into a seperate file.
+
+Writing the function that turns a list of trades into an aggregate trade was tricky. In situations like those, I find TDD one of the best ways to solve a logic puzzle and Jest is a great testing framework for writing unit tests. If you would like to see my step by step process, I would suggest looking at the branch, 'create-aggregate-table'.
