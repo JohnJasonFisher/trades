@@ -2,6 +2,7 @@ import React, {useState, useEffect } from 'react'
 import TradesTable from '../TradesTable/TradesTable'
 import AggregatesTable from '../AggregatesTable/AggregatesTable'
 import axios from 'axios'
+import testTradesData from '../../test-trades-data.json'
 
 function App() {
 
@@ -9,20 +10,25 @@ function App() {
 
 	useEffect(() => {
 		const fetchData = async () => {
-			const result = await axios(
-				{
-					baseURL: `https://${process.env.REACT_APP_TRADES_URL}`,
-					headers: {[process.env.REACT_APP_API_KEY]: process.env.REACT_APP_API_KEY_VALUE}
-				}
-			)
-			setTradeData(result.data)
+			let response
+			try {
+				response = await axios(
+					{
+						baseURL: `https://${process.env.REACT_APP_TRADES_URL}`,
+						headers: {[process.env.REACT_APP_API_KEY]: process.env.REACT_APP_API_KEY_VALUE}
+					}
+				)
+			} catch (error) {
+				console.error(error)
+			}
+			setTradeData(response?.data || testTradesData.trades)
 		}
 		fetchData()
 	}, [])
 
 	function showErrorNotification() {
 		if (process.env.NODE_ENV === 'development' && !process.env.REACT_APP_TRADES_URL) {
-			return <h2 style={{color: 'red'}}>Env is has not been configured</h2>
+			return <h2 style={{color: 'red'}}>Env is has not been configured, using test data!</h2>
 		}
 	} 
 
