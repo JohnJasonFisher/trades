@@ -1,5 +1,6 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
+import './TableComp.css'
 
 function TableComp(props) {
 
@@ -24,10 +25,10 @@ function TableComp(props) {
 	})
 
 	return (
-		<div className="TradesTable">
+		<div className="TableComp">
 
-			<table className="table table-striped">
-	<caption style={{'captionSide': 'top', 'textAlign': 'center'}}>{props.tableName} (length: {props.tableData.length})</caption>
+			<table className="table table-striped" align="center" >
+				<caption style={{'captionSide': 'top', 'textAlign': 'center'}}>{props.tableName} (length: {props.tableData.length})</caption>
 				<thead>
 					<tr>
 						{tableHeaders}
